@@ -38,7 +38,7 @@ jobs:
         sudo apt install gcc-aarch64-linux-gnu -y
         sudo apt install gcc-arm-linux-gnueabi -y
         sudo apt install binutils make python3 libssl-dev build-essential bc bison flex libgmp3-dev libmpc-dev libmpfr-dev dosfstools kmod cpio rsync wget curl unzip squashfs-tools -y
-        git clone https://github.com/kdrag0n/proton-clang --dept=1 -b master
+        git clone https://gitlab.com/ThankYouMario/android_prebuilts_clang_host_linux-x86_clang-r498829b.git --depth=1 -b main proton-clang
     
     - name: GetTime
       id: get_time
