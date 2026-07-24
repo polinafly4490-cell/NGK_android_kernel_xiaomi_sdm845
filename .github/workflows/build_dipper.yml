@@ -38,7 +38,7 @@ jobs:
         sudo apt install gcc-aarch64-linux-gnu -y
         sudo apt install gcc-arm-linux-gnueabi -y
         sudo apt install binutils make python3 libssl-dev build-essential bc bison flex libgmp3-dev libmpc-dev libmpfr-dev dosfstools kmod cpio rsync wget curl unzip squashfs-tools -y
-        git clone https://gitlab.com/ThankYouMario/android_prebuilts_clang_host_linux-x86_clang-r498829b.git --depth=1 -b main proton-clang
+        git clone https://github.com/kdrag0n/proton-clang --depth=1 -b master
     
     - name: GetTime
       id: get_time
@@ -51,6 +51,7 @@ jobs:
         rm -rf drivers/kernelsu
         curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main
         export PATH=$(pwd)/proton-clang/bin/:$PATH
+        make clean && make mrproper
         make $KERNEL_CMDLINE $KERNEL_DEFCONFIG CC="ccache clang"
         make $KERNEL_CMDLINE CC="ccache clang" -j$(nproc --all)
         cp out/arch/arm64/boot/Image.gz-dtb tools/NoGravityKernel
