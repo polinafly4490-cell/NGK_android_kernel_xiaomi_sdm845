@@ -33,10 +33,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        sudo apt-get update -y 
+        sudo apt-get update -y
+        sudo apt-get install -y libc6-dev-i386
         sudo apt install gcc-aarch64-linux-gnu -y
         sudo apt install gcc-arm-linux-gnueabi -y
-        sudo apt install binutils make python3 libssl-dev build-essential bc  bison flex unzip libssl-dev ca-certificates xz-utils mkbootimg cpio device-tree-compiler git git-lfs -y
+        sudo apt install binutils make python3 libssl-dev build-essential bc bison flex libgmp3-dev libmpc-dev libmpfr-dev dosfstools kmod cpio rsync wget curl unzip squashfs-tools -y
         git clone https://github.com/kdrag0n/proton-clang --dept=1 -b master
     
     - name: GetTime
