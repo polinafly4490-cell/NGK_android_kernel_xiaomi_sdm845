@@ -49,7 +49,7 @@ jobs:
       run: |
         rm -rf KernelSU
         rm -rf drivers/kernelsu
-        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main
+        curl -sSL "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
         export PATH=$(pwd)/proton-clang/bin/:$PATH
         rm -f proton-clang/bin/ld
         make $KERNEL_CMDLINE $KERNEL_DEFCONFIG CC="ccache clang"
